@@ -255,11 +255,14 @@ private:
 //тестируем AllBuses
 void TestAllBuses (){
     BusManager bm;
-    bm.AddBus ( "66"s, {"a"s, "b"s, "c"s, "d"s});
-    bm.AddBus ( "69"s, {"e"s, "f"s, "g"s, "d"s});
     ostringstream os;
     os<<bm.GetAllBuses();
-    assert (os.str()=="Bus 66: a b c d\nBus 69: e f g d\n"s);
+    assert (os.str()=="No buses\n"s);
+    bm.AddBus ( "66"s, {"a"s, "b"s, "c"s, "d"s});
+    bm.AddBus ( "69"s, {"e"s, "f"s, "g"s, "d"s});
+    
+    os<<bm.GetAllBuses();
+    assert (os.str()=="No buses\nBus 66: a b c d\nBus 69: e f g d\n"s);
 }
 // Реализуйте функции и классы, объявленные выше, чтобы эта функция main
 // решала задачу "Автобусные остановки"
